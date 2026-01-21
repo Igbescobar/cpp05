@@ -6,11 +6,11 @@
 #    By: igngonza <igngonza@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/14 12:12:35 by igngonza          #+#    #+#              #
-#    Updated: 2026/01/21 11:39:43 by igngonza         ###   ########.fr        #
+#    Updated: 2026/01/21 17:42:11 by igngonza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= AForm
+NAME		= Intern
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
@@ -19,6 +19,7 @@ OBJ_DIR		= objs
 SOURCES		= main.cpp \
               Bureaucrat.cpp \
               AForm.cpp \
+			  Intern.cpp \
               ShrubberyCreationForm.cpp \
               RobotomyRequestForm.cpp \
               PresidentialPardonForm.cpp
@@ -44,7 +45,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f *_shrubbery
 
 re: fclean all
 

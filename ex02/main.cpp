@@ -6,97 +6,110 @@
 /*   By: igngonza <igngonza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 12:17:14 by igngonza          #+#    #+#             */
-/*   Updated: 2026/01/15 13:27:23 by igngonza         ###   ########.fr       */
+/*   Updated: 2026/01/21 11:48:40 by igngonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
 
 int main(void)
 {
-  std::cout << "=== Test 1: Create forms with valid grades ===" << std::endl;
+  std::cout << "=== Test 1: ShrubberyCreationForm ===" << std::endl;
   try
   {
-    Form form1("Tax", 50, 25);
-    std::cout << form1 << std::endl;
-
-    Form form2("Contract", 1, 1);
-    std::cout << form2 << std::endl;
-  }
-  catch (std::exception &e)
-  {
-    std::cerr << "Exception caught: " << e.what() << std::endl;
-  }
-
-  std::cout << "\n=== Test 2: Form with grade too high ===" << std::endl;
-  try
-  {
-    Form form3("Invalid", 0, 50);
-  }
-  catch (std::exception &e)
-  {
-    std::cerr << "Exception caught: " << e.what() << std::endl;
-  }
-
-  std::cout << "\n=== Test 3: Form with grade too low ===" << std::endl;
-  try
-  {
-    Form form4("Invalid", 151, 50);
-  }
-  catch (std::exception &e)
-  {
-    std::cerr << "Exception caught: " << e.what() << std::endl;
-  }
-
-  std::cout << "\n=== Test 4: Bureaucrat successfully signs form ===" << std::endl;
-  try
-  {
-    Bureaucrat bob("Bob", 30);
-    Form form5("Report", 50, 25);
+    Bureaucrat bob("Bob", 137);
+    ShrubberyCreationForm shrubbery("home");
 
     std::cout << bob << std::endl;
-    std::cout << form5 << std::endl;
-    bob.signForm(form5);
-    std::cout << form5 << std::endl;
+    std::cout << shrubbery << std::endl;
+
+    bob.signForm(shrubbery);
+    bob.executeForm(shrubbery);
   }
   catch (std::exception &e)
   {
-    std::cerr << "Exception caught: " << e.what() << std::endl;
+    std::cerr << "Exception: " << e.what() << std::endl;
   }
 
-  std::cout << "\n=== Test 5: Bureaucrat fails to sign form (grade too low) ===" << std::endl;
+  std::cout << "\n=== Test 2: RobotomyRequestForm ===" << std::endl;
   try
   {
-    Bureaucrat intern("Intern", 100);
-    Form form6("Top Secret", 10, 5);
+    Bureaucrat alice("Alice", 45);
+    RobotomyRequestForm robotomy("Bender");
 
-    std::cout << intern << std::endl;
-    std::cout << form6 << std::endl;
-    intern.signForm(form6);
-    std::cout << form6 << std::endl;
+    std::cout << alice << std::endl;
+    std::cout << robotomy << std::endl;
+
+    alice.signForm(robotomy);
+    alice.executeForm(robotomy);
   }
   catch (std::exception &e)
   {
-    std::cerr << "Exception caught: " << e.what() << std::endl;
+    std::cerr << "Exception: " << e.what() << std::endl;
   }
 
-  std::cout << "\n=== Test 6: High-grade bureaucrat signs difficult form ===" << std::endl;
+  std::cout << "\n=== Test 3: PresidentialPardonForm ===" << std::endl;
   try
   {
-    Bureaucrat ceo("CEO", 1);
-    Form form7("Merger Agreement", 5, 1);
+    Bureaucrat president("President", 1);
+    PresidentialPardonForm pardon("Arthur");
 
-    std::cout << ceo << std::endl;
-    std::cout << form7 << std::endl;
-    ceo.signForm(form7);
-    std::cout << form7 << std::endl;
+    std::cout << president << std::endl;
+    std::cout << pardon << std::endl;
+
+    president.signForm(pardon);
+    president.executeForm(pardon);
   }
   catch (std::exception &e)
   {
-    std::cerr << "Exception caught: " << e.what() << std::endl;
+    std::cerr << "Exception: " << e.what() << std::endl;
   }
 
-  return (0);
+  std::cout << "\n=== Test 4: Execution without signing ===" << std::endl;
+  try
+  {
+    Bureaucrat john("John", 1);
+    ShrubberyCreationForm unsigned_form("garden");
+
+    john.executeForm(unsigned_form);
+  }
+  catch (std::exception &e)
+  {
+    std::cerr << "Exception: " << e.what() << std::endl;
+  }
+
+  std::cout << "\n=== Test 5: Execution with insufficient grade ===" << std::endl;
+  try
+  {
+    Bureaucrat lowGrade("LowGrade", 100);
+    Bureaucrat highGrade("HighGrade", 5);
+    PresidentialPardonForm pardon("Criminal");
+
+    highGrade.signForm(pardon);
+    lowGrade.executeForm(pardon);
+  }
+  catch (std::exception &e)
+  {
+    std::cerr << "Exception: " << e.what() << std::endl;
+  }
+
+  std::cout << "\n=== Test 6: Sign with insufficient grade ===" << std::endl;
+  try
+  {
+    Bureaucrat intern("Intern", 150);
+    PresidentialPardonForm pardon("Someone");
+
+    intern.signForm(pardon);
+  }
+  catch (std::exception &e)
+  {
+    std::cerr << "Exception: " << e.what() << std::endl;
+  }
+
+  return 0;
 }

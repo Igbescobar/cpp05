@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igngonza <igngonza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 11:19:58 by igngonza          #+#    #+#             */
-/*   Updated: 2026/01/21 17:49:19 by igngonza         ###   ########.fr       */
+/*   Created: 2026/01/21 17:18:34 by igngonza          #+#    #+#             */
+/*   Updated: 2026/01/21 17:32:11 by igngonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef INTERN_HPP
+#define INTERN_HPP
 
 #include "AForm.hpp"
 #include <string>
 
-class ShrubberyCreationForm : public AForm
+class Intern
 {
 private:
-    const std::string target;
+    AForm *createPresidentialPardonForm(const std::string &target);
+    AForm *createRobotomyRequestForm(const std::string &target);
+    AForm *createShrubberyCreationForm(const std::string &target);
 
 public:
-    ShrubberyCreationForm();
-    ShrubberyCreationForm(const std::string &target);
-    ShrubberyCreationForm(const ShrubberyCreationForm &source);
-    virtual ~ShrubberyCreationForm();
+    Intern();
+    Intern(const Intern &source);
+    ~Intern();
 
-    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &source);
+    Intern &operator=(const Intern &source);
 
-    virtual void executeAction() const;
+    AForm *makeForm(const std::string &formName, const std::string &target);
 };
 
 #endif

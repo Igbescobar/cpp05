@@ -6,7 +6,7 @@
 /*   By: igngonza <igngonza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:19:58 by igngonza          #+#    #+#             */
-/*   Updated: 2026/01/21 17:49:19 by igngonza         ###   ########.fr       */
+/*   Updated: 2026/01/21 11:19:59 by igngonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class ShrubberyCreationForm : public AForm
 {
 private:
-    const std::string target;
+    std::string target;
 
 public:
     ShrubberyCreationForm();

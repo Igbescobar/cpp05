@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: igngonza <igngonza@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/21 11:18:59 by igngonza          #+#    #+#             */
+/*   Updated: 2026/01/21 17:50:15 by igngonza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 #include <iostream>
 
-Form::Form() : name("default"), hasBeenSigned(false), signGrade(0), execGrade(0)
+Form::Form() : name("default"), hasBeenSigned(false), signGrade(150), execGrade(150)
 {
 }
 

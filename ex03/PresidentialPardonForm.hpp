@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentalPardonForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igngonza <igngonza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 11:19:58 by igngonza          #+#    #+#             */
-/*   Updated: 2026/01/21 17:49:19 by igngonza         ###   ########.fr       */
+/*   Created: 2026/01/21 11:19:46 by igngonza          #+#    #+#             */
+/*   Updated: 2026/01/21 11:28:21 by igngonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
 #include <string>
 
-class ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 private:
-    const std::string target;
+    std::string target;
 
 public:
-    ShrubberyCreationForm();
-    ShrubberyCreationForm(const std::string &target);
-    ShrubberyCreationForm(const ShrubberyCreationForm &source);
-    virtual ~ShrubberyCreationForm();
+    PresidentialPardonForm();
+    PresidentialPardonForm(const std::string &target);
+    PresidentialPardonForm(const PresidentialPardonForm &source);
+    virtual ~PresidentialPardonForm();
 
-    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &source);
+    PresidentialPardonForm &operator=(const PresidentialPardonForm &source);
 
     virtual void executeAction() const;
 };
